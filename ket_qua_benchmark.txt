@@ -1,0 +1,134 @@
+Data dir: data/hcmut
+Chunker: HeadingChunker
+Embedding backend: text-embedding-3-small + cache
+Loaded chunks: 96
+
+Query 1: Sinh viên đăng ký môn học Đợt 1 ở đâu và cần lưu ý giới hạn tín chỉ nào?
+Filter: {'audience': 'student'}
+Gold: Sinh viên đăng ký tại MyBK > Đăng ký môn học; Đợt 1 đăng ký tối đa 25 tín chỉ, còn HV/NCS tối đa 20 tín chỉ.
+Expected doc_id: course-registration-process
+Required phrases: ['Đăng ký tại MyBK', 'tối đa 25 tín chỉ']
+  1. score=0.6662 doc_id=course-registration-process chunk=2 title=Quy trình đăng ký môn học
+     2. Đăng ký môn học Đợt 1 a) Đăng ký tại MyBK >> Đăng ký môn học >> Chọn đợt "Đăng ký các học phần có nhu cầu học...". SV xem Loại hình lớp và đối tượng sinh viên để chọn loại đăng ...
+  2. score=0.6389 doc_id=course-registration-rules chunk=0 title=Đăng ký môn học - Quy định - Hướng dẫn chung
+     # Đăng ký môn học - Quy định - Hướng dẫn chung Đăng ký môn học - Quy định - Hướng dẫn chung Trung tâm hỗ trợ Đăng ký môn học - Quy định - Hướng dẫn chung Đăng ký môn học - Quy định...
+  3. score=0.6388 doc_id=course-registration-process chunk=3 title=Quy trình đăng ký môn học
+     2. Đăng ký môn học Đợt 1 - SV đăng ký tất cả các môn học cần học trong đợt này tối đa 25 tín chỉ (HV/NCS tối đa 20 tín chỉ), P.ĐT sẽ sắp xếp thời khóa biểu theo phương án tối ưu nh...
+Doc-level hit top-3: True
+Content-level required phrases found: True
+Score: 2/2
+
+Query 2: Nếu sinh viên không đăng ký môn học và không có thời khóa biểu trong học kỳ thì có thể bị xử lý thế nào?
+Filter: {'audience': 'student'}
+Gold: Sinh viên không đăng ký môn học, không có thời khóa biểu trong học kỳ, sẽ bị xử lý ra quyết định xóa tên vì không có thời khóa biểu.
+Expected doc_id: course-registration-rules
+Required phrases: ['Xóa tên vì không có thời khóa biểu']
+  1. score=0.6366 doc_id=course-registration-rules chunk=2 title=Đăng ký môn học - Quy định - Hướng dẫn chung
+     # Đăng ký môn học - Quy định - Hướng dẫn chung - Tất cả các thông báo về đăng ký môn học, học vụ, học phí, thi, rút môn học, hoãn thi, kiểm tra văn bằng… được cập nhật tại hcmut.ed...
+  2. score=0.6199 doc_id=course-registration-rules chunk=13 title=Đăng ký môn học - Quy định - Hướng dẫn chung
+     5. Các trường hợp không được đăng ký môn học và cách khắc phục để được mở cho đăng ký môn học các đợt sau theo Lịch học vụ - Nộp trễ học phí/ Chưa nộp học phí: SV phải hoàn thành h...
+  3. score=0.6136 doc_id=course-registration-rules chunk=4 title=Đăng ký môn học - Quy định - Hướng dẫn chung
+     # Đăng ký môn học - Quy định - Hướng dẫn chung SV chính quy phải có thời khóa biểu chính thức vào các học kỳ chính (HK1, HK2) và có số tín chỉ tối thiểu theo quy định học vụ: được ...
+Doc-level hit top-3: True
+Content-level required phrases found: True
+Score: 2/2
+
+Query 3: Học phí HK1 và HK2 phải thanh toán vào thời điểm nào?
+Filter: {'topic': 'tuition'}
+Gold: Học phí HK1 và HK2 thanh toán 100% học phí, kết thúc ở tuần 4 của học kỳ, với thời gian thanh toán trong 1 tuần.
+Expected doc_id: tuition-payment
+Required phrases: ['Kết thúc ở tuần 4', '100% học phí']
+  1. score=0.7266 doc_id=tuition-payment chunk=1 title=Học phí
+     1. Thanh toán học phí - Xem hướng dẫn tại đây Lưu ý: Tại Mybk >> Cổng thanh toán BKPay không thanh toán được, chỉ thể hiện đường link hướng dẫn (nếu có), Nên SV thanh toán tại BKpa...
+  2. score=0.6070 doc_id=tuition-payment chunk=2 title=Học phí
+     1. Thanh toán học phí - Xem chi tiết lịch thời gian nộp học phí tại hcmut.edu.vn >> Đào tạo >> Lịch học vụ. 3. Mức học phí Về thông tin học phí bạn vui lòng xem chi tiết tại hcmut....
+  3. score=0.5293 doc_id=tuition-payment chunk=0 title=Học phí
+     # Học phí Học phí Support Center Học phí Học phí...
+Doc-level hit top-3: True
+Content-level required phrases found: True
+Score: 2/2
+
+Query 4: Những môn nào không được phúc tra bài thi cuối kỳ?
+Filter: {'topic': 'grade_appeal'}
+Gold: Các môn không được phúc tra gồm môn thi trắc nghiệm, môn thí nghiệm, môn thực hành, thực tập, đồ án, đề cương luận văn và luận văn tốt nghiệp.
+Expected doc_id: final-exam-grade-review
+Required phrases: ['môn thi trắc nghiệm', 'môn thí nghiệm', 'luận văn tốt nghiệp']
+  1. score=0.5863 doc_id=final-exam-grade-review chunk=0 title=Phúc tra bài thi cuối kỳ
+     # Phúc tra bài thi cuối kỳ Phúc tra bài thi cuối kỳ Support Center Phúc tra bài thi cuối kỳ Phúc tra bài thi cuối kỳ...
+  2. score=0.5702 doc_id=final-exam-grade-review chunk=1 title=Phúc tra bài thi cuối kỳ
+     1- Quy trình: - PHÒNG KHẢO THÍ VÀ BẢO ĐẢM CHẤT LƯỢNG (P.KT&BĐCL) sẽ chuyển yêu cầu phúc tra đến các Khoa/Bộ môn để chuyển đến Giảng viên. Sau khi chấm phúc tra, Giảng viên gửi kết ...
+  3. score=0.5505 doc_id=final-exam-grade-review chunk=2 title=Phúc tra bài thi cuối kỳ
+     2- Cách đăng ký phúc tra bài thi cuối kỳ: + Đăng ký và theo dõi tình trạng tại mybk.hcmut.edu.vn (MyBK) >> Đăng ký phúc tra điểm, bài thi cuối kỳ. + Nhập môn học và mã số môn học >...
+Doc-level hit top-3: True
+Content-level required phrases found: True
+Score: 2/2
+
+Query 5: Đăng ký giấy chứng nhận sinh viên thực hiện trên hệ thống nào và nhận ở đâu?
+Filter: {'audience': 'student'}
+Gold: Sinh viên đăng ký tại MyBK > Ứng dụng cho Sinh viên > Đăng ký in Giấy xác nhận sinh viên; khi trạng thái chuyển Đã in thì đến Phòng Công tác sinh viên để nhận.
+Expected doc_id: student-certificate
+Required phrases: ['Đăng ký in Giấy xác nhận sinh viên', 'Phòng Công tác sinh viên']
+  1. score=0.7239 doc_id=student-certificate chunk=1 title=Cấp giấy chứng nhận sinh viên
+     # Cấp giấy chứng nhận sinh viên SV hệ Vừa làm vừa học phải có thời khóa biểu chính thức vào các học kỳ chính (HK1, HK2) và có số tín chỉ tối thiểu theo quy định học vụ : được đăng ...
+  2. score=0.6488 doc_id=student-certificate chunk=0 title=Cấp giấy chứng nhận sinh viên
+     # Cấp giấy chứng nhận sinh viên Cấp giấy chứng nhận sinh viên Trung tâm hỗ trợ Cấp giấy chứng nhận sinh viên Cấp giấy chứng nhận sinh viên SV chính quy phải có thời khóa biểu chính...
+  3. score=0.6172 doc_id=student-certificate chunk=2 title=Cấp giấy chứng nhận sinh viên
+     # Cấp giấy chứng nhận sinh viên Đăng ký môn học - Quy định - Hướng dẫn chung BẢNG LỊCH TRÌNH CÁC MỐC THỜI GIAN CẬP NHẬT CÁC CHUẨN ĐỂ ĐĂNG KÝ MÔN HỌC THEO LỊCH HỌC VỤ NĂM HỌC 2026-2...
+Doc-level hit top-3: True
+Content-level required phrases found: True
+Score: 2/2
+
+Heading strategy total score: 10/10
+
+=== Strategy comparison summary ===
+=== Strategy: fixed_size ===
+Loaded chunks: 110
+Q1: doc_hit=True phrase_hit=False score=0/2
+Q2: doc_hit=True phrase_hit=True score=2/2
+Q3: doc_hit=True phrase_hit=True score=2/2
+Q4: doc_hit=True phrase_hit=True score=2/2
+Q5: doc_hit=True phrase_hit=True score=2/2
+Total: 8/10
+
+=== Strategy: by_sentences ===
+Loaded chunks: 76
+Q1: doc_hit=True phrase_hit=True score=2/2
+Q2: doc_hit=True phrase_hit=True score=2/2
+Q3: doc_hit=True phrase_hit=True score=2/2
+Q4: doc_hit=True phrase_hit=True score=2/2
+Q5: doc_hit=True phrase_hit=True score=2/2
+Total: 10/10
+
+=== Strategy: recursive ===
+Loaded chunks: 115
+Q1: doc_hit=True phrase_hit=False score=0/2
+Q2: doc_hit=True phrase_hit=True score=2/2
+Q3: doc_hit=True phrase_hit=True score=2/2
+Q4: doc_hit=True phrase_hit=True score=2/2
+Q5: doc_hit=True phrase_hit=True score=2/2
+Total: 8/10
+
+=== Strategy: heading ===
+Loaded chunks: 96
+Q1: doc_hit=True phrase_hit=True score=2/2
+Q2: doc_hit=True phrase_hit=True score=2/2
+Q3: doc_hit=True phrase_hit=True score=2/2
+Q4: doc_hit=True phrase_hit=True score=2/2
+Q5: doc_hit=True phrase_hit=True score=2/2
+Total: 10/10
+
+=== A/B metadata filter for Query 5 ===
+Query: Đăng ký giấy chứng nhận sinh viên thực hiện trên hệ thống nào và nhận ở đâu?
+Strategy: fixed_size
+  No filter: ['student-certificate', 'student-service-offices', 'student-certificate']
+  Filtered : ['student-certificate', 'student-certificate', 'student-certificate']
+Strategy: by_sentences
+  No filter: ['student-certificate', 'freshman-admission-dormitory', 'freshman-admission-dormitory']
+  Filtered : ['student-certificate', 'freshman-admission-dormitory', 'freshman-admission-dormitory']
+Strategy: recursive
+  No filter: ['student-service-offices', 'student-certificate', 'student-certificate']
+  Filtered : ['student-certificate', 'student-certificate', 'course-registration-rules']
+Strategy: heading
+  No filter: ['student-certificate', 'student-certificate', 'student-service-offices']
+  Filtered : ['student-certificate', 'student-certificate', 'student-certificate']
+
